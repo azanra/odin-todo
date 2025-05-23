@@ -1,6 +1,7 @@
 import "./style.css";
 import img from "./asset/resource/img.png";
 import Todo from "./script/model/todo.js";
+import ProjectList from "./script/model/projectList.js";
 
 console.log("Hello world!");
 const paraElement = document.querySelector("p");
@@ -21,5 +22,10 @@ const attribute = {
 
 const todo = new Todo(attribute);
 console.log(todo);
-const stringTodo = JSON.stringify(todo);
-console.log(stringTodo);
+
+const projectList = new ProjectList("first", 1);
+projectList.addTodo(todo);
+console.log(projectList);
+
+projectList.setChecklist(1);
+projectList.setIsOpen(1);
