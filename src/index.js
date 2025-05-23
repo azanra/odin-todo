@@ -29,3 +29,5 @@ console.log(projectList);
 
 projectList.setChecklist(1);
 projectList.setIsOpen(1);
+
+projectList.setAttribute(1, "title", "New title");
