@@ -14,7 +14,6 @@ ProjectList.prototype.setChecklist = function (id) {
       item.setChecked();
     }
   });
-  console.log(this.projectList);
 };
 
 ProjectList.prototype.setIsOpen = function (id) {

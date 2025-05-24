@@ -2,6 +2,7 @@ import "./style.css";
 import img from "./asset/resource/img.png";
 import Todo from "./script/model/todo.js";
 import ProjectList from "./script/model/projectList.js";
+import Project from "./script/model/project.js";
 
 console.log("Hello world!");
 const paraElement = document.querySelector("p");
@@ -32,5 +33,6 @@ projectList.setIsOpen(1);
 
 projectList.setAttribute(1, "title", "New title");
 
-projectList.deleteTodo(1);
-console.log(projectList);
+const project = new Project();
+project.addProjectList(projectList);
+console.log(project);
