@@ -1,41 +1,44 @@
 export default function ProjectList(name, id) {
-  this.projectList = {};
+  this.projectList = [];
   this.name = name;
   this.id = id;
 }
 
 ProjectList.prototype.addTodo = function (todo) {
-  this.projectList[todo.id] = todo;
+  this.projectList = [...this.projectList, todo];
 };
 
 ProjectList.prototype.setChecklist = function (id) {
-  for (const key in this.projectList) {
-    if (id === Number(key)) {
-      this.projectList[id].setChecked();
+  this.projectList.map((item) => {
+    if (item.id === id) {
+      item.setChecked();
     }
-  }
+  });
+  console.log(this.projectList);
 };
 
 ProjectList.prototype.setIsOpen = function (id) {
-  for (const key in this.projectList) {
-    if (id === Number(key)) {
-      this.projectList[id].setIsOpen();
+  this.projectList.map((item) => {
+    if (item.id === id) {
+      item.setIsOpen();
     }
-  }
+  });
 };
 
 ProjectList.prototype.getDueDate = function (id) {
-  for (const key in this.projectList) {
-    if (id === Number(key)) {
-      return this.projectList[key].getDueDate();
+  let dueDate;
+  this.projectList.map((item) => {
+    if (item.id === id) {
+      dueDate = item.getDueDate();
     }
-  }
+  });
+  return dueDate;
 };
 
 ProjectList.prototype.setAttribute = function (id, attribute, newValue) {
-  for (const key in this.projectList) {
-    if (id === Number(key)) {
-      this.projectList[id].setAttribute(attribute, newValue);
+  this.projectList.map((item) => {
+    if (item.id === id) {
+      item.setAttribute(attribute, newValue);
     }
-  }
+  });
 };
