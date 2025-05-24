@@ -35,7 +35,7 @@ ProjectList.prototype.getDueDate = function (id) {
 ProjectList.prototype.setAttribute = function (id, attribute, newValue) {
   for (const key in this.projectList) {
     if (id === Number(key)) {
-      this.projectList[id][attribute] = newValue;
+      this.projectList[id].setAttribute(attribute, newValue);
     }
   }
 };

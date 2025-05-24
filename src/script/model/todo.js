@@ -24,3 +24,7 @@ Todo.prototype.getDueDate = function () {
   const result = formatDistance(this.createdAt, currentDate);
   return result;
 };
+
+Todo.prototype.setAttribute = function (attribute, newValue) {
+  this[attribute] = newValue;
+};
