@@ -42,3 +42,9 @@ ProjectList.prototype.setAttribute = function (id, attribute, newValue) {
     }
   });
 };
+
+ProjectList.prototype.deleteTodo = function (id) {
+  this.projectList = this.projectList.filter((item) => {
+    return item.id !== id;
+  });
+};

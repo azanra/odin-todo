@@ -31,3 +31,6 @@ projectList.setChecklist(1);
 projectList.setIsOpen(1);
 
 projectList.setAttribute(1, "title", "New title");
+
+projectList.deleteTodo(1);
+console.log(projectList);
