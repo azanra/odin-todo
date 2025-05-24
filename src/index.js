@@ -13,7 +13,6 @@ const attribute = {
   id: 1,
   title: "Finish homework",
   description: "Math homework page 210, number one to five",
-  dueDate: "Tomorrow",
   priority: "High",
   note: "Finish it ASAP",
   checked: false,
@@ -23,9 +22,10 @@ const attribute = {
 const todo = new Todo(attribute);
 console.log(todo);
 
-const projectList = new ProjectList("first", 1);
+const projectList = new ProjectList("default", 1);
 projectList.addTodo(todo);
 console.log(projectList);
+console.log(projectList.getDueDate(1));
 
 projectList.setChecklist(1);
 projectList.setIsOpen(1);

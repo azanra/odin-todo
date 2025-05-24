@@ -1,8 +1,10 @@
+import { formatDistance } from "date-fns";
+
 export default function Todo(attribute) {
   this.id = attribute.id;
   this.title = attribute.title;
   this.description = attribute.description;
-  this.dueDate = attribute.dueDate;
+  this.createdAt = new Date();
   this.priority = attribute.priority;
   this.note = attribute.note;
   this.checked = attribute.checked;
@@ -15,4 +17,10 @@ Todo.prototype.setChecked = function () {
 
 Todo.prototype.setIsOpen = function () {
   this.isOpen = !this.isOpen;
+};
+
+Todo.prototype.getDueDate = function () {
+  const currentDate = new Date();
+  const result = formatDistance(this.createdAt, currentDate);
+  return result;
 };

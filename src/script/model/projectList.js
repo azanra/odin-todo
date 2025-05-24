@@ -24,6 +24,14 @@ ProjectList.prototype.setIsOpen = function (id) {
   }
 };
 
+ProjectList.prototype.getDueDate = function (id) {
+  for (const key in this.projectList) {
+    if (id === Number(key)) {
+      return this.projectList[key].getDueDate();
+    }
+  }
+};
+
 ProjectList.prototype.setAttribute = function (id, attribute, newValue) {
   for (const key in this.projectList) {
     if (id === Number(key)) {
