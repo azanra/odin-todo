@@ -17,6 +17,13 @@ export const localData = (function () {
   const storeData = (list) => {
     localStorage.setItem(list.type, JSON.stringify(list.data));
   };
+  const loadData = (type) => {
+    if (type === "todo") {
+      return JSON.parse(localStorage.getItem("todo"));
+    } else {
+      return JSON.parse(localStorage.getItem("project"));
+    }
+  };
 
-  return { todoList, projectList, pushData, storeData };
+  return { todoList, projectList, pushData, storeData, loadData };
 })();

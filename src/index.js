@@ -41,3 +41,9 @@ localData.pushData(project);
 
 localData.storeData(localData.todoList);
 localData.storeData(localData.projectList);
+
+const todoData = localData.loadData("todo");
+console.log(todoData);
+
+const projectData = localData.loadData("project");
+console.log(projectData);
