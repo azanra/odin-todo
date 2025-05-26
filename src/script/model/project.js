@@ -47,7 +47,7 @@ Project.prototype.setAttribute = function (id, attribute, newValue) {
   });
 };
 
-Project.prototype.deleteTodo = function (id) {
+Project.prototype.deleteList = function (id) {
   this.list = this.list.filter((item) => {
     return item !== id;
   });

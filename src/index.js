@@ -63,3 +63,6 @@ console.log(parsedTodo);
 
 const parsedProject = data.parsedProjectList;
 console.log(parsedProject);
+
+project.deleteList(0);
+console.log(project);
