@@ -2,10 +2,10 @@ import { localData } from "./localStorage.js";
 
 const todoList = localData.todoList.data;
 
-export default function Project(name, id) {
-  this.list = [];
-  this.name = name;
-  this.id = id;
+export default function Project(attribute) {
+  this.list = attribute.list || [];
+  this.name = attribute.name;
+  this.id = attribute.id;
   this.type = "list";
 }
 
