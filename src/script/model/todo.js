@@ -9,6 +9,7 @@ export default function Todo(attribute) {
   this.note = attribute.note;
   this.checked = attribute.checked;
   this.isOpen = attribute.isOpen;
+  this.type = "todo";
 }
 
 Todo.prototype.setChecked = function () {

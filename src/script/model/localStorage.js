@@ -14,6 +14,9 @@ export const localData = (function () {
       projectList.data[data.id] = data;
     }
   };
+  const storeData = (list) => {
+    localStorage.setItem(list.type, JSON.stringify(list.data));
+  };
 
-  return { todoList, projectList, pushData };
+  return { todoList, projectList, pushData, storeData };
 })();
