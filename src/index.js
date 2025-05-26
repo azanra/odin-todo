@@ -3,6 +3,7 @@ import img from "./asset/resource/img.png";
 import Todo from "./script/model/todo.js";
 import Project from "./script/model/project.js";
 import { localData } from "./script/model/localStorage.js";
+import { data } from "./script/model/data.js";
 
 console.log("Hello world!");
 const paraElement = document.querySelector("p");
@@ -26,7 +27,13 @@ const todo = new Todo(attribute);
 console.log(todo);
 localData.pushData(todo);
 
-const project = new Project("default", uniqueId++);
+const projectAttr = {
+  id: uniqueId++,
+  name: "default",
+};
+
+const project = new Project(projectAttr);
+console.log(project);
 project.addTodo(todo.id);
 console.log(project);
 console.log(project.getDueDate(0));
@@ -47,3 +54,12 @@ console.log(todoData);
 
 const projectData = localData.loadData("project");
 console.log(projectData);
+
+data.loadData(todoData);
+data.loadData(projectData);
+
+const parsedTodo = data.parsedTodoList;
+console.log(parsedTodo);
+
+const parsedProject = data.parsedProjectList;
+console.log(parsedProject);
