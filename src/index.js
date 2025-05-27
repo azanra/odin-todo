@@ -1,15 +1,8 @@
 import "./style.css";
-import img from "./asset/resource/img.png";
 import Todo from "./script/model/todo.js";
 import Project from "./script/model/project.js";
 import { localData } from "./script/model/localStorage.js";
 import { data } from "./script/model/data.js";
-
-console.log("Hello world!");
-const paraElement = document.querySelector("p");
-const imgElement = document.createElement("img");
-imgElement.src = img;
-paraElement.appendChild(imgElement);
 
 let uniqueId = 0;
 

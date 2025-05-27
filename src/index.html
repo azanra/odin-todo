@@ -6,7 +6,66 @@
     <title>Document</title>
   </head>
   <body>
-    <p>Hello World!</p>
-    <img src="./asset/resource/img.png" alt="" />
+    <div>
+      <div class="projectSection"></div>
+      <div class="actionSection">
+        <div>
+          <button id="createProjectBtn">Create New Project</button>
+          <dialog>
+            <div>
+              <label for="projectNameInput">Project Name : </label>
+              <input type="text" name="projectName" id="projectNameInput" />
+            </div>
+            <div>
+              <button id="addNewProjectBtn">Add New Project</button>
+            </div>
+          </dialog>
+        </div>
+        <div id="addTodoBtn">
+          <dialog>
+            <div>
+              <input
+                type="text"
+                name="todoName"
+                id="todoName"
+                placeholder="Todo Name"
+              />
+            </div>
+            <div>
+              <label for="projectSelect">Choose Which Project : </label>
+              <select name="projectSelect" id="projectSelect">
+                <option value="">Select location project of todo</option>
+              </select>
+            </div>
+            <div>
+              <label for="dueDate">Due Date : </label>
+              <input type="date" name="dueDate" id="dueDate" />
+            </div>
+            <div>
+              <label for="prioritySelect">Priority : </label>
+              <select name="prioritySelect" id="prioritySelect">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div>
+              <label for="description">Description : </label>
+              <textarea name="description" id="description"></textarea>
+            </div>
+            <div>
+              <label for="note">Note : </label>
+              <textarea name="note" id="note"></textarea>
+            </div>
+            <div>
+              <button id="saveTodoBtn">Save Todo</button>
+            </div>
+          </dialog>
+          <div>
+            <button id="addNewTodoBtn">Add New Todo</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
