@@ -2,7 +2,7 @@ export const element = (function () {
   const createDom = (attribute) => {
     const parentElement = document.querySelector(attribute.parentElement);
     const newElement = document.createElement(attribute.newElement);
-    setMultipleAttribute(newElement, attribute.newElementAttribute);
+    setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
     parentElement.append(newElement);
   };
@@ -18,5 +18,14 @@ export const element = (function () {
       element.textContent = elementTextContent;
     }
   };
-  return { createDom, setMultipleAttribute, setTextContent };
+
+  const setUniqueId = (attribute, id) => {
+    if (attribute.uniqueParent === true) {
+      const copyAttribute = JSON.parse(JSON.stringify(attribute));
+      copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
+      return copyAttribute;
+    }
+  };
+
+  return { createDom, setMultipleAttribute, setTextContent, setUniqueId };
 })();
