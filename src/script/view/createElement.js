@@ -20,12 +20,17 @@ export const element = (function () {
   };
 
   const setUniqueId = (attribute, id) => {
-    if (attribute.uniqueParent === true) {
+    if (attribute.uniqueElement === true) {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
     }
   };
 
-  return { createDom, setMultipleAttribute, setTextContent, setUniqueId };
+  return {
+    createDom,
+    setMultipleAttribute,
+    setTextContent,
+    setUniqueId,
+  };
 })();
