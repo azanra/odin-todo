@@ -1,6 +1,6 @@
 export const element = (function () {
-  const createDom = (attribute) => {
-    const parentElement = document.querySelector(attribute.parentElement);
+  const createDom = (attribute, id) => {
+    const parentElement = referenceElement(attribute, id);
     const newElement = document.createElement(attribute.newElement);
     setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
@@ -24,6 +24,14 @@ export const element = (function () {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
+    }
+  };
+
+  const referenceElement = (attribute, id) => {
+    if (attribute.uniqueParent === true && id) {
+      return document.querySelector(`${attribute.parentElement}-${id}`);
+    } else {
+      return document.querySelector(attribute.parentElement);
     }
   };
 
