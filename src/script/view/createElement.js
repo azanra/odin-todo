@@ -1,6 +1,6 @@
 export const element = (function () {
-  const createDom = (attribute, id) => {
-    const parentElement = referenceElement(attribute, id);
+  const createDom = (attribute, project) => {
+    const parentElement = referenceElement(attribute, project.id);
     const newElement = document.createElement(attribute.newElement);
     setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
@@ -24,6 +24,8 @@ export const element = (function () {
       const copyAttribute = JSON.parse(JSON.stringify(attribute));
       copyAttribute.elementAttribute.id = `${copyAttribute.elementAttribute.class}-${id}`;
       return copyAttribute;
+    } else {
+      return attribute;
     }
   };
 
