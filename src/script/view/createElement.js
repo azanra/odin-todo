@@ -4,6 +4,7 @@ export const element = (function () {
     const newElement = document.createElement(attribute.newElement);
     setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
+    populateUniqueText(attribute, newElement, project);
     parentElement.append(newElement);
   };
 
@@ -16,6 +17,12 @@ export const element = (function () {
   const setTextContent = (element, elementTextContent) => {
     if (elementTextContent) {
       element.textContent = elementTextContent;
+    }
+  };
+
+  const populateUniqueText = (attribute, element, project) => {
+    if (attribute.uniqueText === true) {
+      setTextContent(element, project.name);
     }
   };
 
