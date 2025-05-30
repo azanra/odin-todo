@@ -1,10 +1,10 @@
 export const element = (function () {
-  const createDom = (attribute, project) => {
-    const parentElement = referenceElement(attribute, project.id);
+  const createDom = (attribute, data) => {
+    const parentElement = referenceElement(attribute, data.id);
     const newElement = document.createElement(attribute.newElement);
     setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
-    populateUniqueText(attribute, newElement, project);
+    populateUniqueText(attribute, newElement, data);
     parentElement.append(newElement);
   };
 
@@ -20,9 +20,9 @@ export const element = (function () {
     }
   };
 
-  const populateUniqueText = (attribute, element, project) => {
+  const populateUniqueText = (attribute, element, data) => {
     if (attribute.uniqueText === true) {
-      setTextContent(element, project.name);
+      setTextContent(element, data.name);
     }
   };
 
