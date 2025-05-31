@@ -1,6 +1,9 @@
 import { formatDistance } from "date-fns";
 
 export default function Todo(attribute) {
+  if (!new.target) {
+    throw Error("Use new Keyword to call object constructor");
+  }
   this.id = attribute.id;
   this.title = attribute.title;
   this.description = attribute.description;

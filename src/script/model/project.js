@@ -3,6 +3,9 @@ import { localData } from "./localStorage.js";
 const todoList = localData.todoList.data;
 
 export default function Project(attribute) {
+  if (!new.target) {
+    throw Error("Use new Keyword to call object constructor");
+  }
   this.list = attribute.list || [];
   this.name = attribute.name;
   this.id = attribute.id;
