@@ -10,7 +10,7 @@ export default function Project(attribute) {
 }
 
 Project.prototype.addTodo = function (todo) {
-  this.list = [...this.list, todo];
+  this.list = [...this.list, todo.id];
 };
 
 Project.prototype.setChecklist = function (id) {
