@@ -1,7 +1,7 @@
 export const initialData = {
   todo: {
-    0: {
-      id: 0,
+    1: {
+      id: 1,
       title: "Finish homework",
       description: "Math homework page 210, number one to five",
       priority: "High",
@@ -9,8 +9,8 @@ export const initialData = {
       checked: false,
       isOpen: false,
     },
-    1: {
-      id: 1,
+    2: {
+      id: 2,
       title: "Clean dish",
       description: "Clean all leftover dish from yesterday",
       priority: "Medium",
@@ -18,8 +18,8 @@ export const initialData = {
       checked: false,
       isOpen: false,
     },
-    2: {
-      id: 2,
+    3: {
+      id: 3,
       title: "Laundry",
       description: "Insert all the clothes into washing machine",
       priority: "low",
@@ -29,15 +29,15 @@ export const initialData = {
     },
   },
   project: {
-    3: {
-      id: 3,
-      name: "default",
-      list: [0, 1],
-    },
     4: {
       id: 4,
+      name: "default",
+      list: [1, 2],
+    },
+    5: {
+      id: 5,
       name: "home",
-      list: [2],
+      list: [3],
     },
   },
 };
