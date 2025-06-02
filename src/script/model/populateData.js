@@ -28,5 +28,13 @@ export const populateData = (function () {
     }
   };
 
-  return { todoData, projectData, initializeData };
+  const checkData = (type) => {
+    if (localData.loadData(type) === null) {
+      return populateData.initializeData(type);
+    } else {
+      return localData.loadData(type);
+    }
+  };
+
+  return { todoData, projectData, initializeData, checkData };
 })();
