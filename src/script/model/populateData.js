@@ -1,6 +1,7 @@
 import { localData } from "./localStorage.js";
 import Todo from "./todo.js";
 import Project from "./project.js";
+import { initialData } from "../initialData.js";
 
 export const populateData = (function () {
   const todoData = (data) => {
@@ -10,6 +11,7 @@ export const populateData = (function () {
     }
     return localData.todoList.data;
   };
+
   const projectData = (data) => {
     for (const key in data) {
       const project = new Project(data[key]);
@@ -17,5 +19,14 @@ export const populateData = (function () {
     }
     return localData.projectList.data;
   };
-  return { todoData, projectData };
+
+  const initializeData = (type) => {
+    if (type === "todo") {
+      return populateData.todoData(initialData.todo);
+    } else {
+      return populateData.projectData(initialData.project);
+    }
+  };
+
+  return { todoData, projectData, initializeData };
 })();
