@@ -3,10 +3,12 @@ export const localData = (function () {
     type: "todo",
     data: {},
   };
+
   const projectList = {
     type: "project",
     data: {},
   };
+
   const pushData = (data) => {
     if (data.type === "todo") {
       todoList.data[data.id] = data;
@@ -14,14 +16,16 @@ export const localData = (function () {
       projectList.data[data.id] = data;
     }
   };
+
   const storeData = (list) => {
     localStorage.setItem(list.type, JSON.stringify(list.data));
   };
+
   const loadData = (type) => {
     if (type === "todo") {
-      return JSON.parse(localStorage.getItem("todo"));
+      return JSON.parse(JSON.stringify(localStorage.getItem("todo")));
     } else {
-      return JSON.parse(localStorage.getItem("project"));
+      return JSON.parse(JSON.stringify(localStorage.getItem("project")));
     }
   };
 
