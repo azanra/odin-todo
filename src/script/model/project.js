@@ -9,7 +9,7 @@ export default function Project(attribute) {
   this.list = attribute.list || [];
   this.name = attribute.name;
   this.id = attribute.id;
-  this.type = "list";
+  this.type = "project";
 }
 
 Project.prototype.addTodo = function (todo) {
