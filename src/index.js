@@ -10,4 +10,4 @@ const projectData = populateData.checkData("project");
 console.log(projectData);
 
 projectCard.renderCard(projectData);
-todoCard.createCard(todoData[1], 4);
+todoCard.renderCard(projectData, todoData);

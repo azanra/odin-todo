@@ -11,5 +11,14 @@ export const todoCard = (function () {
       element.createDom(attr, todoDataWithParentId);
     }
   };
-  return { createCard };
+
+  const renderCard = (project, todo) => {
+    for (const key in project) {
+      project[key].list.map((item) => {
+        createCard(todo[item], project[key].id);
+      });
+    }
+  };
+
+  return { createCard, renderCard };
 })();
