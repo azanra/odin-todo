@@ -2,9 +2,9 @@ export const element = (function () {
   const createDom = (attribute, data) => {
     const parentElement = referenceElement(attribute, data.id);
     const newElement = document.createElement(attribute.newElement);
+    appendUniqueText(attribute, data);
     setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
-    populateUniqueText(attribute, newElement, data);
     parentElement.append(newElement);
   };
 
@@ -17,12 +17,6 @@ export const element = (function () {
   const setTextContent = (element, elementTextContent) => {
     if (elementTextContent) {
       element.textContent = elementTextContent;
-    }
-  };
-
-  const populateUniqueText = (attribute, element, data) => {
-    if (attribute.uniqueText === true) {
-      setTextContent(element, data.name);
     }
   };
 
@@ -42,6 +36,16 @@ export const element = (function () {
     } else {
       return document.querySelector(attribute.parentElement);
     }
+  };
+
+  const appendUniqueText = (attribute, data) => {
+    if (attribute.hasOwnProperty("dataText")) {
+      appendText(attribute, data);
+    }
+  };
+
+  const appendText = (attribute, data) => {
+    attribute.textContent = data[attribute.dataText];
   };
 
   return {
