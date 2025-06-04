@@ -9,6 +9,7 @@ export const projectCard = (function () {
       element.createDom(attr, project);
     }
   };
+
   const renderCard = (data) => {
     for (const key in data) {
       createCard(data[key]);

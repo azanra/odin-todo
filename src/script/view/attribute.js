@@ -53,4 +53,16 @@ export const attribute = {
       uniqueText: false,
     },
   },
+  todoCard: {
+    todoContainer: {
+      parentElement: "#projectContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+    },
+  },
 };
