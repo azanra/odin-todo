@@ -8,7 +8,6 @@ export const attribute = {
       },
       uniqueParent: false,
       uniqueElement: true,
-      uniqueText: false,
     },
     headerContainer: {
       parentElement: "#projectContainer",
@@ -18,7 +17,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
     },
     headerProject: {
       parentElement: "#headerContainer",
@@ -26,9 +24,9 @@ export const attribute = {
       elementAttribute: {
         class: "headerProject",
       },
+      dataText: "name",
       uniqueParent: true,
       uniqueElement: false,
-      uniqueText: true,
     },
     detailContainer: {
       parentElement: "#projectContainer",
@@ -38,7 +36,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
     },
     detailBtn: {
       parentElement: "#detailContainer",
@@ -50,7 +47,6 @@ export const attribute = {
       textContent: "Detail",
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
     },
   },
   todoCard: {
@@ -62,7 +58,6 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
     },
     todoHeaderContainer: {
       parentElement: "#todoContainer",
@@ -72,7 +67,16 @@ export const attribute = {
       },
       uniqueParent: true,
       uniqueElement: true,
-      uniqueText: false,
+    },
+    todoHeader: {
+      parentElement: "#todoHeaderContainer",
+      newElement: "h1",
+      elementAttribute: {
+        class: "todoHeader",
+      },
+      dataText: "title",
+      uniqueParent: true,
+      uniqueElement: true,
     },
   },
 };
