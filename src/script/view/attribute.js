@@ -64,5 +64,15 @@ export const attribute = {
       uniqueElement: true,
       uniqueText: false,
     },
+    todoHeaderContainer: {
+      parentElement: "#todoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoHeaderContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+      uniqueText: false,
+    },
   },
 };
