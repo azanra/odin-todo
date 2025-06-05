@@ -78,5 +78,41 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    todoBodyContainer: {
+      parentElement: "#todoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoBodyContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoInfoContainer: {
+      parentElement: "#todoBodyContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoInfoContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDueDateContainer: {
+      parentElement: "#todoInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoDueDateContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDueDate: {
+      parentElement: "#todoDueDateContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "todoDueDate",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
 };
