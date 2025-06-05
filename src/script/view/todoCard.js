@@ -7,7 +7,7 @@ export const todoCard = (function () {
     for (const key in todoCard) {
       const attr = element.setUniqueId(todoCard[key], todo.id);
       element.createDom(
-        attr,
+        appendDueDate(attr, todo),
         appendTodoToProject(attr.elementAttribute, todo, parentId)
       );
     }
@@ -20,6 +20,16 @@ export const todoCard = (function () {
       return todoDataWithParentId;
     } else {
       return todo;
+    }
+  };
+
+  const appendDueDate = (attribute, todo) => {
+    if (attribute.elementAttribute.class === "todoDueDate") {
+      const attributeWithDueDate = JSON.parse(JSON.stringify(attribute));
+      attributeWithDueDate.textContent = todo.getDueDate();
+      return attributeWithDueDate;
+    } else {
+      return attribute;
     }
   };
 
