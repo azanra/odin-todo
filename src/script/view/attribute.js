@@ -152,5 +152,25 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    todoDetailContainer: {
+      parentElement: "#todoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoDetailContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDetailBtn: {
+      parentElement: "#todoDetailContainer",
+      newElement: "button",
+      elementAttribute: {
+        class: "todoDetailBtn",
+      },
+      textContent: "Detail",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
+  todoDetail: {},
 };
