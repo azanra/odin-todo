@@ -5,7 +5,8 @@ export const todoCard = (function () {
   const createCard = (todo, parentId) => {
     const todoCard = attribute.todoCard;
     for (const key in todoCard) {
-      const attr = element.setUniqueId(todoCard[key], todo.id);
+      let attr = element.setUniqueId(todoCard[key], todo.id);
+      attr = setCheckeckInput(attr, todo);
       element.createDom(
         appendDueDate(attr, todo),
         appendTodoToProject(attr.elementAttribute, todo, parentId)
@@ -21,6 +22,13 @@ export const todoCard = (function () {
     } else {
       return todo;
     }
+  };
+
+  const setCheckeckInput = (attribute, todo) => {
+    if (attribute.elementAttribute.class === "todoChecklist" && todo.checked) {
+      attribute.elementAttribute.checked = "";
+    }
+    return attribute;
   };
 
   const appendDueDate = (attribute, todo) => {
