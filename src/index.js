@@ -1,3 +1,4 @@
+import { localData } from "./script/model/localStorage.js";
 import { populateData } from "./script/model/populateData.js";
 import { projectCard } from "./script/view/projectCard.js";
 import { todoCard } from "./script/view/todoCard.js";
@@ -11,3 +12,9 @@ console.log(projectData);
 
 projectCard.renderCard(projectData);
 todoCard.renderCard(projectData, todoData);
+
+localData.pushData(todoData);
+localData.storeData(localData.todoList);
+
+localData.pushData(projectData);
+localData.storeData(localData.projectList);

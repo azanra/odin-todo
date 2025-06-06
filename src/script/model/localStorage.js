@@ -11,9 +11,9 @@ export const localData = (function () {
 
   const pushData = (data) => {
     if (data.type === "todo") {
-      todoList.data[data.id] = data;
+      todoList.data = data;
     } else {
-      projectList.data[data.id] = data;
+      projectList.data = data;
     }
   };
 
