@@ -9,6 +9,7 @@ console.log(todoData);
 
 const projectData = populateData.checkData("project");
 console.log(projectData);
+projectData[4].setChecklist(1);
 
 projectCard.renderCard(projectData);
 todoCard.renderCard(projectData, todoData);

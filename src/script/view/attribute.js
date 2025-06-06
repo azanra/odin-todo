@@ -114,5 +114,43 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    todoPriorityContainer: {
+      parentElement: "#todoInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoPriorityContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoPriority: {
+      parentElement: "#todoPriorityContainer",
+      newElement: "p",
+      elementAttribute: {
+        class: "todoPriority",
+      },
+      dataText: "priority",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoChecklistContainer: {
+      parentElement: "#todoInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoChecklistContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoChecklist: {
+      parentElement: "#todoChecklistContainer",
+      newElement: "input",
+      elementAttribute: {
+        type: "checkbox",
+        class: "todoChecklist",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
 };
