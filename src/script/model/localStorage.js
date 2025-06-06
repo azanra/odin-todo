@@ -23,9 +23,9 @@ export const localData = (function () {
 
   const loadData = (type) => {
     if (type === "todo") {
-      return JSON.parse(JSON.stringify(localStorage.getItem("todo")));
+      return JSON.parse(localStorage.getItem("todo"));
     } else {
-      return JSON.parse(JSON.stringify(localStorage.getItem("project")));
+      return JSON.parse(localStorage.getItem("project"));
     }
   };
 
