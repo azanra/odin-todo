@@ -20,19 +20,23 @@ export const populateData = (function () {
     return localData.projectList.data;
   };
 
-  const initializeData = (type) => {
+  const initializeData = (type, data) => {
     if (type === "todo") {
-      return populateData.todoData(initialData.todo);
+      return populateData.todoData(data);
     } else {
-      return populateData.projectData(initialData.project);
+      return populateData.projectData(data);
     }
   };
 
   const checkData = (type) => {
     if (localData.loadData(type) === null) {
-      return populateData.initializeData(type);
+      const data = initialData[type];
+      const initializedData = populateData.initializeData(type, data);
+      return initializedData;
     } else {
-      return localData.loadData(type);
+      const data = localData.loadData(type);
+      const initializedData = populateData.initializeData(type, data);
+      return initializedData;
     }
   };
 
