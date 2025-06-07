@@ -1,11 +1,9 @@
-import { attribute } from "./attribute.js";
 import { element } from "./createElement.js";
 
 export const todoCard = (function () {
-  const createCard = (todo, parentId) => {
-    const todoCard = attribute.todoCard;
-    for (const key in todoCard) {
-      let attr = element.setUniqueId(todoCard[key], todo.id);
+  const createCard = (todo, parentId, elementAttribute) => {
+    for (const key in elementAttribute) {
+      let attr = element.setUniqueId(elementAttribute[key], todo.id);
       attr = setCheckeckInput(attr, todo);
       element.createDom(
         appendDueDate(attr, todo),
@@ -41,10 +39,10 @@ export const todoCard = (function () {
     }
   };
 
-  const renderCard = (project, todo) => {
+  const renderCard = (project, todo, attribute) => {
     for (const key in project) {
       project[key].list.map((item) => {
-        createCard(todo[item], project[key].id);
+        createCard(todo[item], project[key].id, attribute);
       });
     }
   };
