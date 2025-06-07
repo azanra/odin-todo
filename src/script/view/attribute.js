@@ -172,5 +172,74 @@ export const attribute = {
       uniqueElement: true,
     },
   },
-  todoDetail: {},
+  todoDetail: {
+    todoDetailedInfoContainer: {
+      parentElement: "#todoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoDetailedInfoContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDetailedDescContainer: {
+      parentElement: "#todoDetailedInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoDetailedDescContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDetailedDescLabel: {
+      parentElement: "#todoDetailedDescContainer",
+      newElement: "label",
+      elementAttribute: {
+        class: "todoDetailedDescLabel",
+      },
+      textContent: "Description ",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDetailedDesc: {
+      parentElement: "#todoDetailedDescContainer",
+      newElement: "textarea",
+      elementAttribute: {
+        class: "todoDetailedDesc",
+      },
+      dataText: "description",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoNoteContainer: {
+      parentElement: "#todoDetailedInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoNoteContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoNoteLabel: {
+      parentElement: "#todoNoteContainer",
+      newElement: "label",
+      elementAttribute: {
+        class: "todoNoteLabel",
+      },
+      textContent: "Note ",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoNote: {
+      parentElement: "#todoNoteContainer",
+      newElement: "textarea",
+      elementAttribute: {
+        type: "text",
+        class: "todoNote",
+      },
+      dataText: "note",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+  },
 };
