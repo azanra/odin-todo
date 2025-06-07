@@ -241,5 +241,36 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    todoBtnContainer: {
+      parentElement: "#todoDetailedInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoBtnContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoHideBtn: {
+      parentElement: "#todoBtnContainer",
+      newElement: "button",
+      elementAttribute: {
+        type: "button",
+        class: "todoHideBtn",
+      },
+      textContent: "Hide",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoDeleteBtn: {
+      parentElement: "#todoBtnContainer",
+      newElement: "button",
+      elementAttribute: {
+        type: "button",
+        class: "todoDeleteBtn",
+      },
+      textContent: "Delete",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
 };
