@@ -1,3 +1,4 @@
+import { controller } from "./script/controller/controller.js";
 import { localData } from "./script/model/localStorage.js";
 import { populateData } from "./script/model/populateData.js";
 import { attribute } from "./script/view/attribute.js";
@@ -14,9 +15,10 @@ console.log(projectData);
 projectData[4].setChecklist(1);
 
 projectCard.renderCard(projectData);
-todoCard.renderCard(projectData, todoData, attribute.todoCard);
-todoCard.renderCard(projectData, todoData, attribute.todoDetail);
+// todoCard.renderCard(projectData, todoData, attribute.todoCard);
+// todoCard.renderCard(projectData, todoData, attribute.todoDetail);
 todoSelectProject.renderOption(projectData);
+controller.listenToEvent();
 
 localData.pushData(todoData);
 localData.storeData(localData.todoList);
