@@ -3,6 +3,7 @@ import { populateData } from "./script/model/populateData.js";
 import { attribute } from "./script/view/attribute.js";
 import { projectCard } from "./script/view/projectCard.js";
 import { todoCard } from "./script/view/todoCard.js";
+import { todoSelectProject } from "./script/view/todoSelectProject.js";
 import "./style.css";
 
 const todoData = populateData.checkData("todo");
@@ -15,6 +16,7 @@ projectData[4].setChecklist(1);
 projectCard.renderCard(projectData);
 todoCard.renderCard(projectData, todoData, attribute.todoCard);
 todoCard.renderCard(projectData, todoData, attribute.todoDetail);
+todoSelectProject.renderOption(projectData);
 
 localData.pushData(todoData);
 localData.storeData(localData.todoList);

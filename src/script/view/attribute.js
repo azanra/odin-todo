@@ -273,4 +273,16 @@ export const attribute = {
       uniqueElement: true,
     },
   },
+  todoSelectProject: {
+    todoSelectProjectOption: {
+      parentElement: "#projectSelect",
+      newElement: "option",
+      elementAttribute: {
+        value: "",
+      },
+      dataText: "name",
+      uniqueParent: false,
+      uniqueElement: true,
+    },
+  },
 };
