@@ -70,7 +70,7 @@ export const attribute = {
     },
     todoHeader: {
       parentElement: "#todoHeaderContainer",
-      newElement: "h1",
+      newElement: "h2",
       elementAttribute: {
         class: "todoHeader",
       },
