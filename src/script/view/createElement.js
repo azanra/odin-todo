@@ -48,10 +48,18 @@ export const element = (function () {
     attribute.textContent = data[attribute.dataText];
   };
 
+  const removeElementChildren = (query) => {
+    const element = document.querySelector(query);
+    if (element) {
+      element.replaceChildren();
+    }
+  };
+
   return {
     createDom,
     setMultipleAttribute,
     setTextContent,
     setUniqueId,
+    removeElementChildren,
   };
 })();
