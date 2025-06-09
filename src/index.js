@@ -7,12 +7,11 @@ import { todoCard } from "./script/view/todoCard.js";
 import { todoSelectProject } from "./script/view/todoSelectProject.js";
 import "./style.css";
 
-const todoData = populateData.checkData("todo");
+export const todoData = populateData.checkData("todo");
 console.log(todoData);
 
-const projectData = populateData.checkData("project");
+export const projectData = populateData.checkData("project");
 console.log(projectData);
-projectData[4].setChecklist(1);
 
 projectCard.renderCard(projectData);
 // todoCard.renderCard(projectData, todoData, attribute.todoCard);
