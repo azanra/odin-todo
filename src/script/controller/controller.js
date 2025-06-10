@@ -1,5 +1,6 @@
 import { lastId, projectData } from "../..";
 import Project from "../model/project";
+import Todo from "../model/todo";
 import { element } from "../view/createElement";
 import { projectCard } from "../view/projectCard";
 
@@ -12,6 +13,15 @@ export const controller = (function () {
   );
   const addNewProjectBtn = document.querySelector("#addNewProjectBtn");
   const projectNameInput = document.querySelector("#projectNameInput");
+  const addNewTodoBtn = document.querySelector("#addNewTodoBtn");
+  const todoInputModal = document.querySelector("#todoInputModal");
+  const saveTodoBtn = document.querySelector("#saveTodoBtn");
+  const todoNameInput = document.querySelector("#todoName");
+  const projectSelect = document.querySelector("#projectSelect");
+  const dueDateInput = document.querySelector("#dueDate");
+  const prioritySelect = document.querySelector("#prioritySelect");
+  const descriptionInput = document.querySelector("#description");
+  const noteInput = document.querySelector("#note");
 
   const createNewProjectController = () => {
     createProjectBtn.addEventListener("click", () => {
@@ -26,7 +36,7 @@ export const controller = (function () {
     });
   };
 
-  const addNewTodoController = () => {
+  const addNewProjectController = () => {
     addNewProjectBtn.addEventListener("click", () => {
       const nameInput = projectNameInput.value;
       const attribute = {
@@ -42,9 +52,43 @@ export const controller = (function () {
     });
   };
 
+  const addNewTodoController = () => {
+    addNewTodoBtn.addEventListener("click", () => {
+      todoInputModal.show();
+    });
+  };
+
+  const saveTodoController = () => {
+    saveTodoBtn.addEventListener("click", () => {
+      const { attribute, selectProject } = getTodoInputValue();
+      const todo = new Todo(attribute);
+      const dueDate = todo.getDueDate();
+    });
+  };
+
+  const getTodoInputValue = () => {
+    const todoName = todoNameInput.value;
+    const selectProject = projectSelect.value;
+    const dueDate = dueDateInput.value;
+    const priority = prioritySelect.value;
+    const description = descriptionInput.value;
+    const note = noteInput.value;
+    const attribute = {
+      id: lastId++,
+      title: todoName,
+      description: description,
+      dueDate: dueDate,
+      priority: priority,
+      note: note,
+    };
+    return { attribute, selectProject };
+  };
+
   const listenToEvent = () => {
     createNewProjectController();
+    addNewProjectController();
     addNewTodoController();
+    saveTodoController();
   };
 
   return { listenToEvent };
