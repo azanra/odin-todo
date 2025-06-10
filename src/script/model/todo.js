@@ -8,10 +8,11 @@ export default function Todo(attribute) {
   this.title = attribute.title;
   this.description = attribute.description;
   this.createdAt = new Date();
+  this.dueDate = attribute.dueDate;
   this.priority = attribute.priority;
   this.note = attribute.note;
-  this.checked = attribute.checked;
-  this.isOpen = attribute.isOpen;
+  this.checked = false;
+  this.isOpen = false;
   this.type = "todo";
 }
 
@@ -25,7 +26,7 @@ Todo.prototype.setIsOpen = function () {
 
 Todo.prototype.getDueDate = function () {
   const currentDate = new Date();
-  const result = formatDistance(this.createdAt, currentDate);
+  const result = formatDistance(this.dueDate, currentDate);
   return result;
 };
 
