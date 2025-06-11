@@ -20,7 +20,8 @@ export const todoSelectProject = (function () {
 
   const appendValueToAttribute = (attribute, data) => {
     const newAttribute = JSON.parse(JSON.stringify(attribute));
-    newAttribute.elementAttribute.value = data.name;
+    newAttribute.elementAttribute.value = data.id;
+    newAttribute.textContent = data.name;
     return newAttribute;
   };
 
