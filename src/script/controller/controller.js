@@ -1,6 +1,7 @@
 import { lastId, projectData } from "../..";
 import Project from "../model/project";
 import Todo from "../model/todo";
+import { attribute } from "../view/attribute";
 import { element } from "../view/createElement";
 import { projectCard } from "../view/projectCard";
 
@@ -61,9 +62,18 @@ export const controller = (function () {
   const saveTodoController = () => {
     saveTodoBtn.addEventListener("click", () => {
       const { attribute, selectProject } = getTodoInputValue();
-      const todo = new Todo(attribute);
-      const dueDate = todo.getDueDate();
+      if (checkRequiredAttr(attribute) && selectProject) {
+        const todo = new Todo(attribute);
+      } 
     });
+  };
+
+  const checkRequiredAttr = (attribute) => {
+    if (attribute.title && attribute.dueDate && attribute.priority) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const getTodoInputValue = () => {
