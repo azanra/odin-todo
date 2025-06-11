@@ -1,9 +1,8 @@
-import { lastId, projectData } from "../..";
-import Project from "../model/project";
-import Todo from "../model/todo";
-import { attribute } from "../view/attribute";
-import { element } from "../view/createElement";
-import { projectCard } from "../view/projectCard";
+import { projectData } from "../../mainData.js";
+import Project from "../model/project.js";
+import Todo from "../model/todo.js";
+import { element } from "../view/createElement.js";
+import { projectCard } from "../view/projectCard.js";
 
 export const controller = (function () {
   let lastId = 6;
@@ -61,10 +60,12 @@ export const controller = (function () {
 
   const saveTodoController = () => {
     saveTodoBtn.addEventListener("click", () => {
-      const { attribute, selectProject } = getTodoInputValue();
-      if (checkRequiredAttr(attribute) && selectProject) {
+      const { attribute, selectedProject } = getTodoInputValue();
+      if (checkRequiredAttr(attribute) && selectedProject) {
         const todo = new Todo(attribute);
-      } 
+        putTodoToProject(todo, selectedProject);
+        console.log(projectData);
+      }
     });
   };
 
@@ -76,9 +77,17 @@ export const controller = (function () {
     }
   };
 
+  const putTodoToProject = (todo, selectedProject) => {
+    for (const key in projectData) {
+      if (key === selectedProject) {
+        projectData[key].addTodo(todo);
+      }
+    }
+  };
+
   const getTodoInputValue = () => {
     const todoName = todoNameInput.value;
-    const selectProject = projectSelect.value;
+    const selectedProject = projectSelect.value;
     const dueDate = dueDateInput.value;
     const priority = prioritySelect.value;
     const description = descriptionInput.value;
@@ -91,7 +100,7 @@ export const controller = (function () {
       priority: priority,
       note: note,
     };
-    return { attribute, selectProject };
+    return { attribute, selectedProject };
   };
 
   const listenToEvent = () => {
