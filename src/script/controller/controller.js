@@ -22,6 +22,7 @@ export const controller = (function () {
   const noteInput = document.querySelector("#note");
   const todoInputForm = document.querySelector("#todoInputForm");
   const projectInputForm = document.querySelector("#projectInputForm");
+  const cancelAddNewTodoBtn = document.querySelector("#cancelAddTodoBtn");
 
   const createNewProjectController = () => {
     createProjectBtn.addEventListener("click", () => {
@@ -56,6 +57,13 @@ export const controller = (function () {
   const addNewTodoController = () => {
     addNewTodoBtn.addEventListener("click", () => {
       todoInputModal.show();
+      cancelAddTodoController();
+    });
+  };
+
+  const cancelAddTodoController = () => {
+    cancelAddNewTodoBtn.addEventListener("click", () => {
+      todoInputModal.close();
     });
   };
 
