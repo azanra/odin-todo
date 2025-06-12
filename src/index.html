@@ -12,20 +12,31 @@
         <div>
           <button id="createProjectBtn">Create New Project</button>
           <dialog id="projectInputModal">
-            <div>
-              <label for="projectNameInput">Project Name : </label>
-              <input type="text" name="projectName" id="projectNameInput" />
-            </div>
-            <div>
-              <button id="addNewProjectBtn">Add New Project</button>
-              <button id="cancelAddNewProjectBtn">Cancel</button>
-            </div>
+            <form action="" id="projectInputForm">
+              <div>
+                <label for="projectNameInput">Project Name : </label>
+                <input
+                  type="text"
+                  name="projectName"
+                  id="projectNameInput"
+                  required
+                />
+              </div>
+              <div>
+                <button type="submit" id="addNewProjectBtn">
+                  Add New Project
+                </button>
+                <button type="button" id="cancelAddNewProjectBtn">
+                  Cancel
+                </button>
+              </div>
+            </form>
           </dialog>
         </div>
         <div>
           <button id="addNewTodoBtn">Add New Todo</button>
           <dialog id="todoInputModal">
-            <form action="">
+            <form action="" id="todoInputForm">
               <div>
                 <input
                   type="text"

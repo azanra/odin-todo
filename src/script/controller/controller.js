@@ -11,17 +11,17 @@ export const controller = (function () {
   const cancelAddNewProjectBtn = document.querySelector(
     "#cancelAddNewProjectBtn"
   );
-  const addNewProjectBtn = document.querySelector("#addNewProjectBtn");
   const projectNameInput = document.querySelector("#projectNameInput");
   const addNewTodoBtn = document.querySelector("#addNewTodoBtn");
   const todoInputModal = document.querySelector("#todoInputModal");
-  const saveTodoBtn = document.querySelector("#saveTodoBtn");
   const todoNameInput = document.querySelector("#todoName");
   const projectSelect = document.querySelector("#projectSelect");
   const dueDateInput = document.querySelector("#dueDate");
   const prioritySelect = document.querySelector("#prioritySelect");
   const descriptionInput = document.querySelector("#description");
   const noteInput = document.querySelector("#note");
+  const todoInputForm = document.querySelector("#todoInputForm");
+  const projectInputForm = document.querySelector("#projectInputForm");
 
   const createNewProjectController = () => {
     createProjectBtn.addEventListener("click", () => {
@@ -37,7 +37,7 @@ export const controller = (function () {
   };
 
   const addNewProjectController = () => {
-    addNewProjectBtn.addEventListener("click", () => {
+    projectInputForm.addEventListener("submit", (e) => {
       const nameInput = projectNameInput.value;
       const attribute = {
         name: nameInput,
@@ -49,6 +49,7 @@ export const controller = (function () {
       element.removeElementChildren(".projectSection");
       projectCard.renderCard(projectData);
       projectNameInput.value = "";
+      e.preventDefault();
     });
   };
 
@@ -59,7 +60,7 @@ export const controller = (function () {
   };
 
   const saveTodoController = () => {
-    saveTodoBtn.addEventListener("click", (e) => {
+    todoInputForm.addEventListener("submit", (e) => {
       const { attribute, selectedProject } = getTodoInputValue();
       if (checkRequiredAttr(attribute) && selectedProject) {
         const todo = new Todo(attribute);
