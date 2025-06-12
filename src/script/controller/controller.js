@@ -1,4 +1,4 @@
-import { projectData } from "../../mainData.js";
+import { projectData, todoData } from "../../mainData.js";
 import Project from "../model/project.js";
 import Todo from "../model/todo.js";
 import { element } from "../view/createElement.js";
@@ -59,12 +59,15 @@ export const controller = (function () {
   };
 
   const saveTodoController = () => {
-    saveTodoBtn.addEventListener("click", () => {
+    saveTodoBtn.addEventListener("click", (e) => {
       const { attribute, selectedProject } = getTodoInputValue();
       if (checkRequiredAttr(attribute) && selectedProject) {
         const todo = new Todo(attribute);
         putTodoToProject(todo, selectedProject);
-        console.log(projectData);
+        addTodo(todo);
+        console.log(projectData, todoData);
+        todoInputModal.close();
+        e.preventDefault();
       }
     });
   };
@@ -83,6 +86,10 @@ export const controller = (function () {
         projectData[key].addTodo(todo);
       }
     }
+  };
+
+  const addTodo = (todo) => {
+    todoData[todo.id] = todo;
   };
 
   const getTodoInputValue = () => {
