@@ -30,7 +30,9 @@ export const populateData = (function () {
 
   const checkData = (type) => {
     if (localData.loadData(type)) {
-      return localData.loadData(type);
+      const rawData = localData.loadData(type);
+      const data = initializeData(type, rawData);
+      return data;
     } else {
       const data = initialData[type];
       const initializedData = populateData.initializeData(type, data);
