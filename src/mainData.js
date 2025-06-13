@@ -1,5 +1,6 @@
 import { localData } from "./script/model/localStorage";
 import { populateData } from "./script/model/populateData";
+import { todoSelectProject } from "./script/view/todoSelectProject";
 
 export const todoData = populateData.checkData("todo");
 console.log(todoData);
@@ -20,10 +21,9 @@ export const updateData = (function () {
     if (JSON.stringify(project) !== localProject) {
       localData.pushData(project);
       localData.storeData(localData.projectList);
+      todoSelectProject.renderOption(project);
     }
   };
 
   return { updateTodoData, updateProjectData };
 })();
-
-
