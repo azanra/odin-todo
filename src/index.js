@@ -8,9 +8,3 @@ import "./style.css";
 projectCard.renderCard(projectData);
 todoSelectProject.renderOption(projectData);
 controller.listenToEvent();
-
-localData.pushData(todoData);
-localData.storeData(localData.todoList);
-
-localData.pushData(projectData);
-localData.storeData(localData.projectList);

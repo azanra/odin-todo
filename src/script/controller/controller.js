@@ -51,6 +51,7 @@ export const controller = (function () {
       projectCard.renderCard(projectData);
       projectNameInput.value = "";
       e.preventDefault();
+      console.log(projectData);
     });
   };
 
