@@ -1,4 +1,4 @@
-import { projectData, todoData } from "../../mainData.js";
+import { projectData, todoData, updateData } from "../../mainData.js";
 import Project from "../model/project.js";
 import Todo from "../model/todo.js";
 import { element } from "../view/createElement.js";
@@ -52,6 +52,7 @@ export const controller = (function () {
       projectNameInput.value = "";
       e.preventDefault();
       console.log(projectData);
+      updateData.updateProjectData(projectData);
     });
   };
 
@@ -78,6 +79,7 @@ export const controller = (function () {
         console.log(projectData, todoData);
         todoInputModal.close();
         e.preventDefault();
+        updateData.updateTodoData(todoData);
       }
     });
   };

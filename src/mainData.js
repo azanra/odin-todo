@@ -6,7 +6,7 @@ console.log(todoData);
 export const projectData = populateData.checkData("project");
 console.log(projectData);
 
-const updateData = (function () {
+export const updateData = (function () {
   const updateTodoData = (todo) => {
     const localTodo = localStorage.getItem("todo");
     if (JSON.stringify(todo) !== localTodo) {
@@ -26,5 +26,4 @@ const updateData = (function () {
   return { updateTodoData, updateProjectData };
 })();
 
-updateData.updateTodoData(todoData);
-updateData.updateProjectData(projectData);
+
