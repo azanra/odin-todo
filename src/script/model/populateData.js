@@ -29,12 +29,10 @@ export const populateData = (function () {
   };
 
   const checkData = (type) => {
-    if (localData.loadData(type) === null) {
-      const data = initialData[type];
-      const initializedData = populateData.initializeData(type, data);
-      return initializedData;
+    if (localData.loadData(type)) {
+      return localData.loadData(type);
     } else {
-      const data = localData.loadData(type);
+      const data = initialData[type];
       const initializedData = populateData.initializeData(type, data);
       return initializedData;
     }
