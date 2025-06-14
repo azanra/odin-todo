@@ -40,11 +40,9 @@ export const todoCard = (function () {
   };
 
   const renderCard = (project, todo, attribute) => {
-    for (const key in project) {
-      project[key].list.map((item) => {
-        createCard(todo[item], project[key].id, attribute);
-      });
-    }
+    project.list.map((item) => {
+      createCard(todo[item], project.id, attribute);
+    });
   };
 
   return { createCard, renderCard };

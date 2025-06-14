@@ -1,8 +1,10 @@
 import { projectData, todoData, updateData } from "../../mainData.js";
 import Project from "../model/project.js";
 import Todo from "../model/todo.js";
+import { attribute } from "../view/attribute.js";
 import { element } from "../view/createElement.js";
 import { projectCard } from "../view/projectCard.js";
+import { todoCard } from "../view/todoCard.js";
 
 export const controller = (function () {
   let lastId = 6;
@@ -128,11 +130,22 @@ export const controller = (function () {
     return id;
   };
 
+  const projectDetailController = () => {
+    const projectDetailBtn = document.querySelectorAll(".detailBtn");
+    projectDetailBtn.forEach((detailBtn) => {
+      detailBtn.addEventListener("click", (e) => {
+        const attr = e.target.id;
+        const id = getId(attr);
+        todoCard.renderCard(projectData[id], todoData, attribute.todoCard);
+      });
+    });
+  };
   const listenToEvent = () => {
     createNewProjectController();
     addNewProjectController();
     addNewTodoController();
     saveTodoController();
+    projectDetailController();
   };
 
   return { listenToEvent };
