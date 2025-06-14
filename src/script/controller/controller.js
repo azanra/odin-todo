@@ -122,6 +122,12 @@ export const controller = (function () {
     return { attribute, selectedProject };
   };
 
+  const getId = (attribute) => {
+    const attributeArray = attribute.split("-");
+    const id = attributeArray[1];
+    return id;
+  };
+
   const listenToEvent = () => {
     createNewProjectController();
     addNewProjectController();
