@@ -48,10 +48,40 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    projectChildContainer: {
+      parentElement: "#projectContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "projectChildContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+  },
+  hideProjectDetail: {
+    hideProjectDetailContainer: {
+      parentElement: "#projectContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "hideProjectDetailContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    hideProjectDetailBtn: {
+      parentElement: "#hideProjectDetailContainer",
+      newElement: "button",
+      elementAttribute: {
+        class: "hideProjectDetailBtn",
+      },
+      textContent: "Hide",
+      uniqueParent: true,
+      uniqueElement: true,
+    },
   },
   todoCard: {
     todoContainer: {
-      parentElement: "#projectContainer",
+      parentElement: "#projectChildContainer",
       newElement: "div",
       elementAttribute: {
         class: "todoContainer",

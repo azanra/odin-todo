@@ -1,3 +1,4 @@
+import { attribute } from "./attribute.js";
 import { element } from "./createElement.js";
 
 export const todoCard = (function () {
@@ -45,5 +46,13 @@ export const todoCard = (function () {
     });
   };
 
-  return { createCard, renderCard };
+  const renderHideProjectBtn = (project) => {
+    const attr = attribute.hideProjectDetail;
+    for (const key in attr) {
+      const uniqueAttr = element.setUniqueId(attr[key], project.id);
+      element.createDom(uniqueAttr, project);
+    }
+  };
+
+  return { createCard, renderCard, renderHideProjectBtn };
 })();

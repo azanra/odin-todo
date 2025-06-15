@@ -130,22 +130,24 @@ export const controller = (function () {
     return id;
   };
 
-  const projectDetailController = () => {
+  const projectDetailShowController = () => {
     const projectDetailBtn = document.querySelectorAll(".detailBtn");
     projectDetailBtn.forEach((detailBtn) => {
       detailBtn.addEventListener("click", (e) => {
         const attr = e.target.id;
         const id = getId(attr);
         todoCard.renderCard(projectData[id], todoData, attribute.todoCard);
+        todoCard.renderHideProjectBtn(projectData[id]);
       });
     });
   };
+
   const listenToEvent = () => {
     createNewProjectController();
     addNewProjectController();
     addNewTodoController();
     saveTodoController();
-    projectDetailController();
+    projectDetailShowController();
   };
 
   return { listenToEvent };
