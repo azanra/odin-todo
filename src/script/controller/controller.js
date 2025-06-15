@@ -138,7 +138,19 @@ export const controller = (function () {
         const id = getId(attr);
         todoCard.renderCard(projectData[id], todoData, attribute.todoCard);
         todoCard.renderHideProjectBtn(projectData[id]);
+        projectDetailHideController(id);
       });
+    });
+  };
+
+  const projectDetailHideController = (id) => {
+    const hideDetailBtn = document.querySelector(`#hideProjectDetailBtn-${id}`);
+    const projectChildContainer = document.querySelector(
+      `#projectChildContainer-${id}`
+    );
+    hideDetailBtn.addEventListener("click", () => {
+      projectChildContainer.replaceChildren();
+      hideDetailBtn.remove();
     });
   };
 
