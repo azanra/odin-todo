@@ -74,7 +74,7 @@ export const attribute = {
       elementAttribute: {
         class: "hideProjectDetailBtn",
       },
-      textContent: "Hide",
+      textContent: "Hide All",
       uniqueParent: true,
       uniqueElement: true,
     },
@@ -280,14 +280,14 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
-    todoHideBtn: {
+    todoSaveBtn: {
       parentElement: "#todoBtnContainer",
       newElement: "button",
       elementAttribute: {
         type: "button",
-        class: "todoHideBtn",
+        class: "todoSaveBtn",
       },
-      textContent: "Hide",
+      textContent: "Save",
       uniqueParent: true,
       uniqueElement: true,
     },

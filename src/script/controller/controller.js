@@ -140,6 +140,7 @@ export const controller = (function () {
         todoCard.renderHideProjectBtn(projectData[id]);
         detailBtn.disabled = true;
         projectDetailHideController(detailBtn, id);
+        todoDetailController();
       });
     });
   };
@@ -149,13 +150,25 @@ export const controller = (function () {
     const projectChildContainer = document.querySelector(
       `#projectChildContainer-${id}`
     );
-    hideDetailBtn.addEventListener("click", () => {
+    hideDetailBtn.addEventListener("click", (e) => {
       projectChildContainer.replaceChildren();
-      hideDetailBtn.remove();
+      e.target.parentElement.remove();
       detailBtn.disabled = false;
     });
   };
 
+  const todoDetailController = () => {
+    const todoDetailBtn = document.querySelectorAll(".todoDetailContainer");
+    todoDetailBtn.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const attr = e.target.id;
+        const id = getId(attr);
+        const todo = todoData[id];
+        todoCard.createCard(todo, null, attribute.todoDetail);
+        e.target.parentElement.remove();
+      });
+    });
+  };
   const listenToEvent = () => {
     createNewProjectController();
     addNewProjectController();
