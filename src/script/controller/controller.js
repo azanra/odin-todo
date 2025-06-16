@@ -138,12 +138,13 @@ export const controller = (function () {
         const id = getId(attr);
         todoCard.renderCard(projectData[id], todoData, attribute.todoCard);
         todoCard.renderHideProjectBtn(projectData[id]);
-        projectDetailHideController(id);
+        detailBtn.disabled = true;
+        projectDetailHideController(detailBtn, id);
       });
     });
   };
 
-  const projectDetailHideController = (id) => {
+  const projectDetailHideController = (detailBtn, id) => {
     const hideDetailBtn = document.querySelector(`#hideProjectDetailBtn-${id}`);
     const projectChildContainer = document.querySelector(
       `#projectChildContainer-${id}`
@@ -151,6 +152,7 @@ export const controller = (function () {
     hideDetailBtn.addEventListener("click", () => {
       projectChildContainer.replaceChildren();
       hideDetailBtn.remove();
+      detailBtn.disabled = false;
     });
   };
 
