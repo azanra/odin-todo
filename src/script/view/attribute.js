@@ -212,6 +212,63 @@ export const attribute = {
       uniqueParent: true,
       uniqueElement: true,
     },
+    todoTitleEditContainer: {
+      parentElement: "#todoDetailedInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoTitleEditContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoTitleLabel: {
+      parentElement: "#todoTitleEditContainer",
+      newElement: "label",
+      elementAttribute: {
+        class: "todoTitleLabel",
+      },
+      textContent: "Title: ",
+      uniqueParent: true,
+      uniqueElement: false,
+    },
+    todoTitleEdit: {
+      parentElement: "#todoTitleEditContainer",
+      newElement: "input",
+      elementAttribute: {
+        type: "text",
+        class: "todoTitleEdit",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoSelectPriorityContainer: {
+      parentElement: "#todoDetailedInfoContainer",
+      newElement: "div",
+      elementAttribute: {
+        class: "todoSelectPriorityContainer",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
+    todoSelectPriorityLabel: {
+      parentElement: "#todoSelectPriorityContainer",
+      newElement: "label",
+      elementAttribute: {
+        class: "todoSelectPriorityLabel",
+      },
+      textContent: "Priority: ",
+      uniqueParent: true,
+      uniqueElement: false,
+    },
+    todoSelectPriority: {
+      parentElement: "#todoSelectPriorityContainer",
+      newElement: "select",
+      elementAttribute: {
+        class: "todoSelectPriority",
+      },
+      uniqueParent: true,
+      uniqueElement: true,
+    },
     todoDetailedDescContainer: {
       parentElement: "#todoDetailedInfoContainer",
       newElement: "div",
