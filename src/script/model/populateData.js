@@ -23,8 +23,10 @@ export const populateData = (function () {
   const initializeData = (type, data) => {
     if (type === "todo") {
       return populateData.todoData(data);
-    } else {
+    } else if (type === "project") {
       return populateData.projectData(data);
+    } else if (type === "id") {
+      return Number(data.lastId);
     }
   };
 

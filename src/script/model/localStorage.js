@@ -9,6 +9,11 @@ export const localData = (function () {
     data: {},
   };
 
+  const lastId = {
+    type: "id",
+    data: null,
+  };
+
   const storeData = (list) => {
     localStorage.setItem(list.type, JSON.stringify(list.data));
   };
@@ -22,8 +27,12 @@ export const localData = (function () {
       const project = JSON.parse(localStorage.getItem("project"));
       console.log(project);
       return project;
+    } else if (type === "id") {
+      const lastId = JSON.parse(localStorage.getItem("id"));
+      console.log(lastId);
+      return lastId;
     }
   };
 
-  return { todoList, projectList, storeData, loadData };
+  return { todoList, projectList, lastId, storeData, loadData };
 })();

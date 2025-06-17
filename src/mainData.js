@@ -7,6 +7,9 @@ console.log(todoData);
 export const projectData = populateData.checkData("project");
 console.log(projectData);
 
+export const lastId = populateData.checkData("id");
+console.log(lastId);
+
 export const updateData = (function () {
   const updateTodoData = (todo) => {
     const localTodo = localStorage.getItem("todo");
@@ -25,5 +28,13 @@ export const updateData = (function () {
     }
   };
 
-  return { updateTodoData, updateProjectData };
+  const updateLastId = (lastId) => {
+    const localLastId = localStorage.getItem("id");
+    if (JSON.stringify(lastId) !== localLastId) {
+      localData.lastId.data = lastId;
+      localData.storeData(localData.lastId);
+    }
+  };
+
+  return { updateTodoData, updateProjectData, updateLastId };
 })();
