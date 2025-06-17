@@ -203,7 +203,9 @@ export const controller = (function () {
     const done = getDone(id);
     const title = getTitle(id);
     const priority = getPriority(id);
-    return { done, title, priority };
+    const description = getDescription(id);
+    const note = getNote(id);
+    return { done, title, priority, description, note };
   };
 
   const getDone = (id) => {
@@ -223,6 +225,16 @@ export const controller = (function () {
   const getPriority = (id) => {
     const selectInput = document.querySelector(`#todoSelectPriority-${id}`);
     return selectInput.value;
+  };
+
+  const getDescription = (id) => {
+    const detailInput = document.querySelector(`#todoDetailedDesc-${id}`);
+    return detailInput.value;
+  };
+
+  const getNote = (id) => {
+    const noteInput = document.querySelector(`#todoNote-${id}`);
+    return noteInput.value;
   };
 
   const listenToEvent = () => {
