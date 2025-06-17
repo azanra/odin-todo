@@ -9,14 +9,6 @@ export const localData = (function () {
     data: {},
   };
 
-  const pushData = (data) => {
-    if (data.type === "todo") {
-      todoList.data = data;
-    } else {
-      projectList.data = data;
-    }
-  };
-
   const storeData = (list) => {
     localStorage.setItem(list.type, JSON.stringify(list.data));
   };
@@ -26,12 +18,12 @@ export const localData = (function () {
       const todo = JSON.parse(localStorage.getItem("todo"));
       console.log(todo);
       return todo;
-    } else {
+    } else if (type === "project") {
       const project = JSON.parse(localStorage.getItem("project"));
       console.log(project);
       return project;
     }
   };
 
-  return { todoList, projectList, pushData, storeData, loadData };
+  return { todoList, projectList, storeData, loadData };
 })();

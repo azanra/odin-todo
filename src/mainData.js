@@ -11,7 +11,7 @@ export const updateData = (function () {
   const updateTodoData = (todo) => {
     const localTodo = localStorage.getItem("todo");
     if (JSON.stringify(todo) !== localTodo) {
-      localData.pushData(todo);
+      localData.todoList.data = todo;
       localData.storeData(localData.todoList);
     }
   };
@@ -19,7 +19,7 @@ export const updateData = (function () {
   const updateProjectData = (project) => {
     const localProject = localStorage.getItem("project");
     if (JSON.stringify(project) !== localProject) {
-      localData.pushData(project);
+      localData.projectList.data = project;
       localData.storeData(localData.projectList);
       todoSelectProject.renderOption(project);
     }
