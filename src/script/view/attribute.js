@@ -233,11 +233,11 @@ export const attribute = {
     },
     todoTitleEdit: {
       parentElement: "#todoTitleEditContainer",
-      newElement: "input",
+      newElement: "textArea",
       elementAttribute: {
-        type: "text",
         class: "todoTitleEdit",
       },
+      dataText: "title",
       uniqueParent: true,
       uniqueElement: true,
     },

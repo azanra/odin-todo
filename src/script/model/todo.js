@@ -11,13 +11,13 @@ export default function Todo(attribute) {
   this.dueDate = attribute.dueDate;
   this.priority = attribute.priority;
   this.note = attribute.note;
-  this.checked = false;
+  this.done = false;
   this.isOpen = false;
   this.type = "todo";
 }
 
-Todo.prototype.setChecked = function () {
-  this.checked = !this.checked;
+Todo.prototype.setdone = function () {
+  this.done = !this.done;
 };
 
 Todo.prototype.setIsOpen = function () {

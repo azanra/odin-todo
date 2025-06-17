@@ -166,6 +166,7 @@ export const controller = (function () {
         const todo = todoData[id];
         todoCard.createCard(todo, null, attribute.todoDetail);
         populateSelectTodoPriority(id);
+        saveTodoDetailController();
         e.target.parentElement.remove();
       });
     });
@@ -180,6 +181,35 @@ export const controller = (function () {
       priorityOption.textContent = item;
       selectElement.append(priorityOption);
     });
+  };
+
+  const saveTodoDetailController = () => {
+    const saveTodo = document.querySelectorAll(".todoSaveBtn");
+    saveTodo.forEach((item) => {
+      item.removeEventListener("click", savetodoDetailEvent);
+      item.addEventListener("click", savetodoDetailEvent);
+    });
+  };
+
+  const savetodoDetailEvent = (e) => {
+    const attr = e.target.id;
+    const id = getId(attr);
+    const userInput = getUserEdit(id);
+    console.log(userInput);
+  };
+
+  const getUserEdit = (id) => {
+    const done = getUserCheckbox(id);
+    return { done };
+  };
+
+  const getUserCheckbox = (id) => {
+    const checklist = document.querySelector(`#todoChecklist-${id}`);
+    if (checklist.checked) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const listenToEvent = () => {

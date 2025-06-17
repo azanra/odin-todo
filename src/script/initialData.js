@@ -7,7 +7,7 @@ export const initialData = {
       priority: "High",
       dueDate: "2025-07-13T23:23:16.411Z",
       note: "Finish it ASAP",
-      checked: false,
+      done: false,
       isOpen: false,
     },
     2: {
@@ -17,7 +17,7 @@ export const initialData = {
       priority: "Medium",
       dueDate: "2025-08-13T23:23:16.411Z",
       note: "",
-      checked: false,
+      done: false,
       isOpen: false,
     },
     3: {
@@ -27,7 +27,7 @@ export const initialData = {
       priority: "low",
       dueDate: "2025-09-13T23:23:16.411Z",
       note: "Use proper detergent",
-      checked: false,
+      done: false,
       isOpen: false,
     },
   },
