@@ -160,16 +160,18 @@ export const controller = (function () {
   const todoDetailController = () => {
     const todoDetailBtn = document.querySelectorAll(".todoDetailContainer");
     todoDetailBtn.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        const attr = e.target.id;
-        const id = getId(attr);
-        const todo = todoData[id];
-        todoCard.createCard(todo, null, attribute.todoDetail);
-        populateSelectTodoPriority(id);
-        saveTodoDetailController();
-        e.target.parentElement.remove();
-      });
+      item.addEventListener("click", todoDetailEvent);
     });
+  };
+
+  const todoDetailEvent = (e) => {
+    const attr = e.target.id;
+    const id = getId(attr);
+    const todo = todoData[id];
+    todoCard.createCard(todo, null, attribute.todoDetail);
+    populateSelectTodoPriority(id);
+    saveTodoDetailController();
+    e.target.parentElement.remove();
   };
 
   const populateSelectTodoPriority = (id) => {
@@ -186,7 +188,6 @@ export const controller = (function () {
   const saveTodoDetailController = () => {
     const saveTodo = document.querySelectorAll(".todoSaveBtn");
     saveTodo.forEach((item) => {
-      item.removeEventListener("click", savetodoDetailEvent);
       item.addEventListener("click", savetodoDetailEvent);
     });
   };
@@ -199,17 +200,29 @@ export const controller = (function () {
   };
 
   const getUserEdit = (id) => {
-    const done = getUserCheckbox(id);
-    return { done };
+    const done = getDone(id);
+    const title = getTitle(id);
+    const priority = getPriority(id);
+    return { done, title, priority };
   };
 
-  const getUserCheckbox = (id) => {
+  const getDone = (id) => {
     const checklist = document.querySelector(`#todoChecklist-${id}`);
     if (checklist.checked) {
       return true;
     } else {
       return false;
     }
+  };
+
+  const getTitle = (id) => {
+    const titleInput = document.querySelector(`#todoTitleEdit-${id}`);
+    return titleInput.value;
+  };
+
+  const getPriority = (id) => {
+    const selectInput = document.querySelector(`#todoSelectPriority-${id}`);
+    return selectInput.value;
   };
 
   const listenToEvent = () => {
