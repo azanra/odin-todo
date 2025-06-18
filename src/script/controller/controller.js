@@ -1,4 +1,4 @@
-import { projectData, todoData, updateData } from "../../mainData.js";
+import { lastId, projectData, todoData, updateData } from "../../mainData.js";
 import Project from "../model/project.js";
 import Todo from "../model/todo.js";
 import { attribute } from "../view/attribute.js";
@@ -7,7 +7,6 @@ import { projectCard } from "../view/projectCard.js";
 import { todoCard } from "../view/todoCard.js";
 
 export const controller = (function () {
-  let lastId = 6;
   const projectInputModal = document.querySelector("#projectInputModal");
   const createProjectBtn = document.querySelector("#createProjectBtn");
   const cancelAddNewProjectBtn = document.querySelector(
@@ -42,9 +41,10 @@ export const controller = (function () {
   const addNewProjectController = () => {
     projectInputForm.addEventListener("submit", (e) => {
       const nameInput = projectNameInput.value;
+      const latestId = lastId + 1;
       const attribute = {
         name: nameInput,
-        id: lastId++,
+        id: latestId,
       };
       const newProject = new Project(attribute);
       projectData[attribute.id] = newProject;
@@ -55,6 +55,7 @@ export const controller = (function () {
       e.preventDefault();
       console.log(projectData);
       updateData.updateProjectData(projectData);
+      updateData.updateLastId(latestId);
     });
   };
 
@@ -77,11 +78,12 @@ export const controller = (function () {
       if (checkRequiredAttr(attribute) && selectedProject) {
         const todo = new Todo(attribute);
         putTodoToProject(todo, selectedProject);
-        addTodo(todo);
+        todoData[todo.id] = todo;
         console.log(projectData, todoData);
         todoInputModal.close();
         e.preventDefault();
         updateData.updateTodoData(todoData);
+        updateData.updateLastId(todo.id);
       }
     });
   };
@@ -102,11 +104,8 @@ export const controller = (function () {
     }
   };
 
-  const addTodo = (todo) => {
-    todoData[todo.id] = todo;
-  };
-
   const getTodoInputValue = () => {
+    const todoId = lastId + 1;
     const todoName = todoNameInput.value;
     const selectedProject = projectSelect.value;
     const dueDate = dueDateInput.value;
@@ -114,7 +113,7 @@ export const controller = (function () {
     const description = descriptionInput.value;
     const note = noteInput.value;
     const attribute = {
-      id: lastId++,
+      id: todoId,
       title: todoName,
       description: description,
       dueDate: dueDate,
@@ -196,6 +195,7 @@ export const controller = (function () {
     const attr = e.target.id;
     const id = getId(attr);
     const userInput = getUserEdit(id);
+    todoData[id] = userInput;
     console.log(userInput);
   };
 
