@@ -26,7 +26,7 @@ export const populateData = (function () {
     } else if (type === "project") {
       return populateData.projectData(data);
     } else if (type === "id") {
-      return Number(data.lastId);
+      return data;
     }
   };
 

@@ -43,7 +43,5 @@ export const initialData = {
       list: [3],
     },
   },
-  id: {
-    lastId: 6,
-  },
+  id: 6,
 };
