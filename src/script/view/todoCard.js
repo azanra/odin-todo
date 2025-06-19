@@ -24,7 +24,7 @@ export const todoCard = (function () {
   };
 
   const setCheckeckInput = (attribute, todo) => {
-    if (attribute.elementAttribute.class === "todoChecklist" && todo.checked) {
+    if (attribute.elementAttribute.class === "todoChecklist" && todo.done) {
       attribute.elementAttribute.checked = "";
     }
     return attribute;
