@@ -1,3 +1,4 @@
+import { todoData } from "../../mainData.js";
 import { attribute } from "./attribute.js";
 import { element } from "./createElement.js";
 
@@ -41,6 +42,7 @@ export const todoCard = (function () {
   };
 
   const renderCard = (project, todo, attribute) => {
+    console.log(todoData);
     project.list.map((item) => {
       createCard(todo[item], project.id, attribute);
     });

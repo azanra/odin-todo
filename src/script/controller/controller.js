@@ -176,20 +176,29 @@ export const controller = (function () {
     const id = getId(attr);
     const todo = todoData[id];
     todoCard.createCard(todo, null, attribute.todoDetail);
-    populateSelectTodoPriority(id);
+    populateSelectTodoPriority(todo);
     saveTodoDetailController();
     e.target.parentElement.remove();
   };
 
-  const populateSelectTodoPriority = (id) => {
-    const selectElement = document.querySelector(`#todoSelectPriority-${id}`);
+  const populateSelectTodoPriority = (todo) => {
+    const selectElement = document.querySelector(
+      `#todoSelectPriority-${todo.id}`
+    );
     const priority = ["Low", "Medium", "High"];
     priority.map((item) => {
       const priorityOption = document.createElement("option");
       priorityOption.setAttribute("value", item.toLowerCase());
+      chooseAsSelected(priorityOption, todo, item);
       priorityOption.textContent = item;
       selectElement.append(priorityOption);
     });
+  };
+
+  const chooseAsSelected = (element, todo, option) => {
+    if (todo.priority && todo.priority.toLowerCase() === option.toLowerCase()) {
+      element.setAttribute("selected", "");
+    }
   };
 
   const saveTodoDetailController = () => {
