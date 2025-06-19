@@ -165,7 +165,7 @@ export const controller = (function () {
   };
 
   const todoDetailController = () => {
-    const todoDetailBtn = document.querySelectorAll(".todoDetailContainer");
+    const todoDetailBtn = document.querySelectorAll(".todoDetailBtn");
     todoDetailBtn.forEach((item) => {
       item.addEventListener("click", todoDetailEvent);
     });
