@@ -8,7 +8,10 @@ console.log(todoData);
 export const projectData = populateData.checkData("project");
 console.log(projectData);
 
-export const lastId = populateData.checkData("id");
+export let lastId = populateData.checkData("id");
+export const increaseLastId = () => {
+  lastId = lastId + 1;
+};
 console.log(lastId);
 
 export const updateData = (function () {

@@ -1,4 +1,10 @@
-import { lastId, projectData, todoData, updateData } from "../../mainData.js";
+import {
+  increaseLastId,
+  lastId,
+  projectData,
+  todoData,
+  updateData,
+} from "../../mainData.js";
 import Project from "../model/project.js";
 import Todo from "../model/todo.js";
 import { attribute } from "../view/attribute.js";
@@ -41,7 +47,8 @@ export const controller = (function () {
   const addNewProjectController = () => {
     projectInputForm.addEventListener("submit", (e) => {
       const nameInput = projectNameInput.value;
-      const latestId = lastId + 1;
+      const latestId = lastId;
+      increaseLastId();
       const attribute = {
         name: nameInput,
         id: latestId,
@@ -105,7 +112,8 @@ export const controller = (function () {
   };
 
   const getTodoInputValue = () => {
-    const todoId = lastId + 1;
+    const todoId = lastId;
+    increaseLastId();
     const todoName = todoNameInput.value;
     const selectedProject = projectSelect.value;
     const dueDate = dueDateInput.value;
