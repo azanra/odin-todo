@@ -11,7 +11,7 @@ export default function Todo(attribute) {
   this.dueDate = attribute.dueDate;
   this.priority = attribute.priority;
   this.note = attribute.note;
-  this.done = false;
+  this.done = attribute.done || false;
   this.isOpen = false;
   this.type = "todo";
 }
