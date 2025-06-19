@@ -204,6 +204,9 @@ export const controller = (function () {
     const id = getId(attr);
     const userInput = getUserEdit(id);
     todoData[id] = updateTodoAttribute(todoData[id], userInput);
+    alert("Todo Updated!");
+    updateData.updateTodoData(todoData);
+    console.log(todoData);
     console.log(userInput);
   };
 
