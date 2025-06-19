@@ -203,8 +203,15 @@ export const controller = (function () {
     const attr = e.target.id;
     const id = getId(attr);
     const userInput = getUserEdit(id);
-    todoData[id] = userInput;
+    todoData[id] = updateTodoAttribute(todoData[id], userInput);
     console.log(userInput);
+  };
+
+  const updateTodoAttribute = (todo, updatedAttr) => {
+    for (const key in updatedAttr) {
+      todo.setAttribute(key, updatedAttr[key]);
+    }
+    return todo;
   };
 
   const getUserEdit = (id) => {
