@@ -55,11 +55,19 @@ export const element = (function () {
     }
   };
 
+  const removeElement = (query) => {
+    const element = document.querySelector(query);
+    if (element) {
+      element.remove();
+    }
+  };
+
   return {
     createDom,
     setMultipleAttribute,
     setTextContent,
     setUniqueId,
     removeElementChildren,
+    removeElement,
   };
 })();
