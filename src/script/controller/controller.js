@@ -62,7 +62,7 @@ export const controller = (function () {
       e.preventDefault();
       console.log(projectData);
       updateData.updateProjectData(projectData);
-      updateData.updateLastId(latestId);
+      updateData.updateLastId(lastId);
     });
   };
 
@@ -90,7 +90,7 @@ export const controller = (function () {
         todoInputModal.close();
         e.preventDefault();
         updateData.updateTodoData(todoData);
-        updateData.updateLastId(todo.id);
+        updateData.updateLastId(lastId);
       }
     });
   };
@@ -174,13 +174,25 @@ export const controller = (function () {
   const deleteEvent = (e) => {
     const attr = e.target.id;
     const id = getId(attr);
+    deleteTodoFromProject(id);
+    deleteTodoData(id);
+    element.removeElement(`#todoContainer-${id}`);
+  };
+
+  const deleteTodoFromProject = (id) => {
     const project = findProject(id);
     project.deleteList(Number(id));
     projectData[id] = project;
     console.log(projectData[id]);
     console.log(projectData);
     updateData.updateProjectData(projectData);
-    element.removeElement(`#todoContainer-${id}`);
+  };
+
+  const deleteTodoData = (id) => {
+    const { [id]: deletedTodo, ...updatedTodo } = todoData;
+    console.log(deletedTodo);
+    console.log(updatedTodo);
+    updateData.updateTodoData(updatedTodo);
   };
 
   const findProject = (id) => {
