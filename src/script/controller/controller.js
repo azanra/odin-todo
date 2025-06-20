@@ -176,6 +176,11 @@ export const controller = (function () {
     const id = getId(attr);
     const project = findProject(id);
     project.deleteList(Number(id));
+    projectData[id] = project;
+    console.log(projectData[id]);
+    console.log(projectData);
+    updateData.updateProjectData(projectData);
+    element.removeElement(`#todoContainer-${id}`);
   };
 
   const findProject = (id) => {
