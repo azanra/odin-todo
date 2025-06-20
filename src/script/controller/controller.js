@@ -164,6 +164,28 @@ export const controller = (function () {
     });
   };
 
+  const deleteTodoController = () => {
+    const deleteTodoBtn = document.querySelectorAll(".todoDeleteBtn");
+    deleteTodoBtn.forEach((deleteBtn) => {
+      deleteBtn.addEventListener("click", deleteEvent);
+    });
+  };
+
+  const deleteEvent = (e) => {
+    const attr = e.target.id;
+    const id = getId(attr);
+    const project = findProject(id);
+    project.deleteList(Number(id));
+  };
+
+  const findProject = (id) => {
+    for (const key in projectData) {
+      if (projectData[key].list.includes(Number(id))) {
+        return projectData[key];
+      }
+    }
+  };
+
   const todoDetailController = () => {
     const todoDetailBtn = document.querySelectorAll(".todoDetailBtn");
     todoDetailBtn.forEach((item) => {
@@ -178,6 +200,7 @@ export const controller = (function () {
     todoCard.createCard(todo, null, attribute.todoDetail);
     populateSelectTodoPriority(todo);
     saveTodoDetailController();
+    deleteTodoController();
     e.target.parentElement.remove();
   };
 
