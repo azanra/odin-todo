@@ -3,9 +3,11 @@ import { populateData } from "./script/model/populateData";
 import { element } from "./script/view/createElement";
 import { todoSelectProject } from "./script/view/todoSelectProject";
 
-export const todoData = populateData.checkData("todo");
-console.log(todoData);
-export const projectData = populateData.checkData("project");
+export let todoData = populateData.checkData("todo");
+export const updateTodoData = (newTodo) => {
+  todoData = newTodo;
+};
+export let projectData = populateData.checkData("project");
 console.log(projectData);
 
 export let lastId = populateData.checkData("id");

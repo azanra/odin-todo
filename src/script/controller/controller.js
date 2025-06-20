@@ -4,6 +4,7 @@ import {
   projectData,
   todoData,
   updateData,
+  updateTodoData,
 } from "../../mainData.js";
 import Project from "../model/project.js";
 import Todo from "../model/todo.js";
@@ -182,8 +183,6 @@ export const controller = (function () {
   const deleteTodoFromProject = (id) => {
     const project = findProject(id);
     project.deleteList(Number(id));
-    projectData[id] = project;
-    console.log(projectData[id]);
     console.log(projectData);
     updateData.updateProjectData(projectData);
   };
@@ -192,6 +191,7 @@ export const controller = (function () {
     const { [id]: deletedTodo, ...updatedTodo } = todoData;
     console.log(deletedTodo);
     console.log(updatedTodo);
+    updateTodoData(updatedTodo);
     updateData.updateTodoData(updatedTodo);
   };
 
