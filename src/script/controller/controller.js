@@ -64,6 +64,7 @@ export const controller = (function () {
       console.log(projectData);
       updateData.updateProjectData(projectData);
       updateData.updateLastId(lastId);
+      projectDetailShowController();
     });
   };
 
