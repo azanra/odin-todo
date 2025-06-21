@@ -94,6 +94,7 @@ export const controller = (function () {
         updateData.updateTodoData(todoData);
         updateData.updateLastId(lastId);
       }
+      resetTodoInput();
     });
   };
 
@@ -109,6 +110,7 @@ export const controller = (function () {
     for (const key in projectData) {
       if (key === selectedProject) {
         projectData[key].addTodo(todo);
+        updateData.updateProjectData(projectData);
       }
     }
   };
@@ -130,7 +132,6 @@ export const controller = (function () {
       priority: priority,
       note: note,
     };
-    resetTodoInput();
     return { attribute, selectedProject };
   };
 
