@@ -130,7 +130,17 @@ export const controller = (function () {
       priority: priority,
       note: note,
     };
+    resetTodoInput();
     return { attribute, selectedProject };
+  };
+
+  const resetTodoInput = () => {
+    todoNameInput.value = "";
+    projectSelect.value = "";
+    dueDateInput.value = "";
+    prioritySelect.value = "";
+    descriptionInput.value = "";
+    noteInput.value = "";
   };
 
   const getId = (attribute) => {
