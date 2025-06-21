@@ -1,2 +1,23 @@
+:root {
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 body {
+  font-family: var(--system-ui);
+}
+
+.container {
+  display: flex;
+}
+
+.container {
+  justify-content: space-evenly;
+}
+
+.projectChildContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 25px;
 }
