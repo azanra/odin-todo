@@ -3,9 +3,28 @@ export const element = (function () {
     const parentElement = referenceElement(attribute, data.id);
     const newElement = document.createElement(attribute.newElement);
     appendUniqueText(attribute, data);
+    changePriorityColor(newElement, attribute, data);
     setMultipleAttribute(newElement, attribute.elementAttribute);
     setTextContent(newElement, attribute.textContent);
     parentElement.append(newElement);
+  };
+
+  const changePriorityColor = (element, attribute, data) => {
+    if (attribute.elementAttribute.class === "todoPriority") {
+      if (data.type === "todo" && data.priority.toLowerCase() === "low") {
+        element.style.color = "green";
+      } else if (
+        data.type === "todo" &&
+        data.priority.toLowerCase() === "medium"
+      ) {
+        element.style.color = "yellow";
+      } else if (
+        data.type === "todo" &&
+        data.priority.toLowerCase() === "high"
+      ) {
+        element.style.color = "red";
+      }
+    }
   };
 
   const setMultipleAttribute = (element, attribute) => {
