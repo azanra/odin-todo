@@ -7,18 +7,25 @@ body {
   font-family: var(--system-ui);
 }
 
-.todoHeader {
+.h1,
+h2 {
   margin: 0;
 }
 
-.detailContainer {
+.detailContainer,
+.projectChildContainer {
   margin-bottom: 15px;
 }
 
 .container,
 .todoInfoContainer,
-.todoBtnContainer {
+.todoBtnContainer,
+.hideProjectDetailContainer {
   display: flex;
+}
+
+.hideProjectDetailContainer {
+  justify-content: end;
 }
 
 .todoTitleEditContainer,
@@ -64,4 +71,62 @@ body {
 #todoInputForm > div,
 #projectInputForm > div {
   margin-bottom: 15px;
+}
+
+.todoContainer,
+.projectContainer {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.todoContainer {
+  border: 1px solid grey;
+}
+
+.todoBtnContainer {
+  margin-top: 50px;
+}
+
+.todoSaveBtn,
+.todoDeleteBtn,
+.detailBtn,
+.todoDetailBtn,
+.hideProjectDetailBtn {
+  height: 30px;
+  width: 75px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  color: white;
+}
+
+.todoSaveBtn:hover,
+.todoDeleteBtn:hover,
+.detailBtn:hover,
+.todoDetailBtn:hover,
+.hideProjectDetailBtn:hover {
+  width: 78px;
+  height: 33px;
+}
+
+.todoDeleteBtn {
+  background-color: #e34432;
+}
+
+.todoSaveBtn {
+  background-color: #809cff;
+}
+
+.todoDetailBtn,
+.detailBtn {
+  background-color: #ffcc80;
+}
+
+.detailBtn:disabled {
+  background-color: #fff3e1;
+}
+
+.hideProjectDetailBtn {
+  background-color: rgb(130, 197, 130);
 }
