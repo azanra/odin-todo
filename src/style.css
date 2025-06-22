@@ -7,12 +7,38 @@ body {
   font-family: var(--system-ui);
 }
 
-.h1,
+h1,
 h2 {
   margin: 0;
 }
 
-.detailContainer,
+.detailContainer {
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+#createProjectBtn,
+#addNewTodoBtn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+#createProjectBtn:hover,
+#addNewTodoBtn:hover {
+  padding: 13p 18px;
+}
+
+#createProjectBtn {
+  background-color: rgb(179, 98, 179);
+}
+
+#addNewTodoBtn {
+  background-color: rgb(130, 130, 216);
+}
+
 .projectChildContainer {
   margin-bottom: 15px;
 }
@@ -20,7 +46,8 @@ h2 {
 .container,
 .todoInfoContainer,
 .todoBtnContainer,
-.hideProjectDetailContainer {
+.hideProjectDetailContainer,
+.actionSection {
   display: flex;
 }
 
@@ -53,7 +80,8 @@ h2 {
 .todoNoteContainer,
 .todoBtnContainer,
 #todoInputForm > div,
-#projectInputForm > div {
+#projectInputForm > div,
+.actionSection {
   gap: 15px;
 }
 
@@ -81,7 +109,7 @@ h2 {
 }
 
 .todoContainer {
-  border: 1px solid grey;
+  border: 1px solid rgb(228, 226, 226);
 }
 
 .todoBtnContainer {
