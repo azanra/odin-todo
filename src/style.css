@@ -7,17 +7,61 @@ body {
   font-family: var(--system-ui);
 }
 
-.container {
+.todoHeader {
+  margin: 0;
+}
+
+.detailContainer {
+  margin-bottom: 15px;
+}
+
+.container,
+.todoInfoContainer,
+.todoBtnContainer {
   display: flex;
+}
+
+.todoTitleEditContainer,
+.todoSelectPriorityContainer,
+.todoDetailedDescContainer,
+.todoNoteContainer,
+#todoInputForm > div,
+#projectInputForm > div {
+  display: flex;
+  align-items: center;
 }
 
 .container {
   justify-content: space-evenly;
 }
 
+.todoInfoContainer {
+  align-items: center;
+}
+
+.todoInfoContainer,
+.todoTitleEditContainer,
+.todoSelectPriorityContainer,
+.todoDetailedDescContainer,
+.todoNoteContainer,
+.todoBtnContainer,
+#todoInputForm > div,
+#projectInputForm > div {
+  gap: 15px;
+}
+
 .projectChildContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   gap: 25px;
+}
+
+.todoContainer > div,
+.todoTitleEditContainer,
+.todoSelectPriorityContainer,
+.todoDetailedDescContainer,
+.todoNoteContainer,
+#todoInputForm > div,
+#projectInputForm > div {
+  margin-bottom: 15px;
 }

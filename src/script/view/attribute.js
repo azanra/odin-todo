@@ -284,7 +284,7 @@ export const attribute = {
       elementAttribute: {
         class: "todoDetailedDescLabel",
       },
-      textContent: "Description ",
+      textContent: "Description: ",
       uniqueParent: true,
       uniqueElement: true,
     },
@@ -313,7 +313,7 @@ export const attribute = {
       elementAttribute: {
         class: "todoNoteLabel",
       },
-      textContent: "Note ",
+      textContent: "Note: ",
       uniqueParent: true,
       uniqueElement: true,
     },
