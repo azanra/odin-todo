@@ -18,7 +18,11 @@ h2 {
 }
 
 #createProjectBtn,
-#addNewTodoBtn {
+#addNewTodoBtn,
+#addNewProjectBtn,
+#cancelAddNewProjectBtn,
+#saveTodoBtn,
+#cancelAddTodoBtn {
   padding: 10px 15px;
   border-radius: 5px;
   border: none;
@@ -26,9 +30,26 @@ h2 {
   font-weight: bold;
 }
 
+#addNewProjectBtn,
+#cancelAddNewProjectBtn,
+#saveTodoBtn,
+#cancelAddTodoBtn {
+  margin-top: 25px;
+}
+
+dialog {
+  border-radius: 5px;
+  border: none;
+  padding: 30px;
+}
+
 #createProjectBtn:hover,
-#addNewTodoBtn:hover {
-  padding: 13p 18px;
+#addNewTodoBtn:hover,
+#addNewProjectBtn:hover,
+#cancelAddNewProjectBtn:hover,
+#saveTodoBtn:hover,
+#cancelAddTodoBtn:hover {
+  padding: 13px 18px;
 }
 
 #createProjectBtn {
@@ -47,6 +68,8 @@ h2 {
 .todoInfoContainer,
 .todoBtnContainer,
 .hideProjectDetailContainer,
+#addNewProjectBtn,
+#cancelAddNewProjectBtn,
 .actionSection {
   display: flex;
 }
@@ -138,11 +161,15 @@ h2 {
   height: 33px;
 }
 
-.todoDeleteBtn {
+.todoDeleteBtn,
+#cancelAddNewProjectBtn,
+#cancelAddTodoBtn {
   background-color: #e34432;
 }
 
-.todoSaveBtn {
+.todoSaveBtn,
+#addNewProjectBtn,
+#saveTodoBtn {
   background-color: #809cff;
 }
 

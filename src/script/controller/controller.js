@@ -34,7 +34,7 @@ export const controller = (function () {
 
   const createNewProjectController = () => {
     createProjectBtn.addEventListener("click", () => {
-      projectInputModal.show();
+      projectInputModal.showModal();
       cancelAddNewProjectController();
     });
   };
@@ -70,7 +70,7 @@ export const controller = (function () {
 
   const addNewTodoController = () => {
     addNewTodoBtn.addEventListener("click", () => {
-      todoInputModal.show();
+      todoInputModal.showModal();
       cancelAddTodoController();
     });
   };
